@@ -1,9 +1,10 @@
 import React from 'react'
 
-export function DemoComponent(){
+export function DemoComponent({name, country, children}){
     return(
         <div>
-            <h1>Hello, world!</h1>
+            <h1 className='text-tertiary'>My name is {name} from {country}</h1>
+            {children}
         </div>
     );
 }
