@@ -6,6 +6,11 @@ import TitleComponent from './components/TitleComponent';
 import ClickEventHandler from './components/ClickEventHandler'
 import UserLogin from './components/UserLogin';
 import EmployeeList from './components/EmployeeList';
+import RegularStyleSheet from './components/RegularStyleSheet';
+import Inline from './components/Inline';
+import CSSModule from './components/CSSModule';
+import FormInput from './components/FormInput';
+import Counter from './components/Counter';
 
 
 function App() {
@@ -19,8 +24,13 @@ function App() {
             <TitleComponent/>
           </DemoComponent> */}
           {/* <ClickEventHandler/> */}
-          <UserLogin/>
+          {/* <UserLogin/> */}
           {/* <EmployeeList/> */}
+          {/* <RegularStyleSheet className={true}/> */}
+          {/* <Inline/> */}
+          {/* <CSSModule/> */}
+          {/* <FormInput/> */}
+          <Counter/>
         </div>
       </div>
     </div>

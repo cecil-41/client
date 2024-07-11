@@ -1,0 +1,15 @@
+.class1{
+    font-family: 'Courier New', Courier, monospace;
+    color: brown;
+    text-decoration: dotted;
+}
+
+.class2{
+    font-family: 'Courier New', Courier, monospace;
+    color:gray;
+    text-decoration: dotted;
+}
+
+.error{
+    color: red;
+}

@@ -25,6 +25,7 @@
 - Components can be nested inside another components.
 - Components return a UI which is in jsx (JavaScript XML).
 - Components must be imported for them to be accessible in the root app (App.js) 
+- `import RegularStyleSheet from './components/RegularStyleSheet';`
 - There's only a single default export per module.
 - When using a default export you'd be able to specify any name to it when you importing the component.
 - Otherwise, you should use curly braces {} around the component name when importing it.
@@ -45,6 +46,7 @@
 - You capitalize every word except for the first word e.g onClick = , className (pascal naming converntion)
 - Since components are independent then how do we pass information from one component to another?
 - That's where props comes in.
+- We use single tags in react for className etc.
 
 ## Props
 - Stands for properties
@@ -69,7 +71,7 @@
 - The value of a prop that is send from a parent component cannot be altered in the child component.
 
 ## Props Distructering
-- JS feature that allows you extract multiple pieces of data from an array and assign them to their variables.
+- Is a JS feature that allows you extract multiple pieces of data from an array and assign them to their variables.
 - Improves code readability
 - We do not use'props.' anymore when using props distructering.
 - We take them on the function and user curly brackets to list the props.
@@ -79,6 +81,10 @@
 - It returns an array of two entries.
 - This is how we import the useState hook:
     `import React,{useState} from 'react'`
+
+## Hooks
+- Hooks can only be calle at the top level, therefore not inside a loop etc. 
+- Hooks can only be called inside a react function.
 
 ## Conditional rendering
 ### Method 1
@@ -114,7 +120,65 @@
             return <h2>{employee}</h2>
         })
 
+- keys must be declared at the upper level.
 
+## Styling
+1. Regular CSS
+- import the styling file to the right module using its path e.g.
+`import './myStyles.css'`
+### Conditional Styling
+- You can use props to control styling 
+    `export default function RegularStyleSheet({ className }) {
+        const computedClassName = className ? 'class1' : 'class2';
+        return (
+            <div>
+                <h1 className={computedClassName}>Learning how to style a react component.</h1>
+            </div>
+        );
+    }`
+- App.js
+`<RegularStyleSheet className={true}/>`
+- When the prop is true then class1 will be applied else(false) class2 will be applied which is passed when calling the component in App.js
+
+2. Inline Styling
+- Create an object first then target and style that object under/inside the function component.
+    `export default function Inline() {
+            const heading = {
+                fontSize: '100px',
+                color: ''
+            }
+        return (
+            <div>
+                <h1 style={heading}>This is inline styling</h1>
+            </div>
+        )
+    }`
+- How you call styling classes
+`<h1 style={heading}>This is inline styling</h1>`
+
+3. CSS Modules
+- A CSS Module is a CSS file in which all class and animation names are scoped locally by default. This means that the styles defined in a CSS Module are scoped to the component they are imported into, preventing clashes with other styles in the application.
+- Name your CSS file with a .module.css extension, e.g., styles.module.css`.
+- Give the file a name and specify the location as you import it.
+`import cssstyles from './appStyles.module.css;`
+- How you call the styling classes.
+    `import cssstyles from './appStyles.module.css';
+
+    export default function CSSModule() {
+        return (
+            <div>
+                <h1 className={cssstyles.header}>Hello, World!</h1>
+                <p className={cssstyles.content}>This is a paragraph with scoped styles.</p>
+                <h1 className="error">Text from myStyles.css</h1>
+            </div>
+        )
+    }`
+
+
+## Form Input
+- We need to import useState() hook.
+- Then assign the value to the first value
+- Use the set variable with the onchange variable
 
 ### `npm test`
 
