@@ -74,16 +74,17 @@
 - Is a JS feature that allows you extract multiple pieces of data from an array and assign them to their variables.
 - Improves code readability
 - We do not use'props.' anymore when using props distructering.
-- We take them on the function and user curly brackets to list the props.
+- We take them on the function and use curly brackets to list the props.
 
-## UseState() Hooks
-- Usestate hook is a function
+## 1. UseState() Hooks
+- Usestate hook is a function feature in React that allows you to add state management to functional components.
 - It returns an array of two entries.
 - This is how we import the useState hook:
     `import React,{useState} from 'react'`
+- A function that allows you to update the state value.
 
 ## Hooks
-- Hooks can only be calle at the top level, therefore not inside a loop etc. 
+- Hooks can only be called at the top level, therefore not inside a loop etc. 
 - Hooks can only be called inside a react function.
 
 ## Conditional rendering
@@ -115,6 +116,8 @@
     }`
 
 ## Mapping
+- The map() function in React is often used to render lists of elements dynamically based on an array of data. 
+- map() is frequently used inside the render method or return statement of a functional component to transform an array of data into an array of JSX elements.
 - map method takes in a function as an arg
     employees.map((employee)=> {
             return <h2>{employee}</h2>
@@ -145,7 +148,7 @@
     `export default function Inline() {
             const heading = {
                 fontSize: '100px',
-                color: ''
+                color: 'blue'
             }
         return (
             <div>
@@ -179,6 +182,104 @@
 - We need to import useState() hook.
 - Then assign the value to the first value
 - Use the set variable with the onchange variable
+
+
+## React Dev Tools
+- React Developer Tools on chrome store.
+
+## Objects useState()
+- When working with objects through useState we need to use spread operator (...employee) to the object across its attributes to avoid overiding the existing data.
+
+- `<input
+        type="text"
+        className="form-control mb-2"
+        value={employee.name}
+        onChange={(e) => setEmployee({...employee, name: e.target.value })}
+      />`
+
+## 2. useEffect()
+- import it first.
+- useEffect is a hook in React that allows you to perform side effects in function components. Side effects are operations that affect something outside the scope of the function, such as fetching data, updating the DOM, or setting up subscriptions. 
+- Is defined inside a component.
+- It runs in every render.
+- To avoid rerendering each time then we need to pass an empty array like this:
+` useEffect(()=>{
+    document.title=`You Clicked Me: ${count} times`
+    console.log("useEffect is called")
+  }, [])`
+
+- We can conditionally render the useEffect() by passing the condition in an array like this
+` useEffect(()=>{
+    document.title=`You Clicked Me: ${count} times`
+    console.log("useEffect is called")
+  }, [count])`
+
+## useEffect Clean Up Function
+- Whenever you wanna amount the component always make sure to cancel all the subscriptions.
+
+## JSONPlaceholder
+- Source that we can use to fetch fake data.
+- https://jsonplaceholder.typicode.com/
+
+## Fetching Data using Axios API
+- Install axios by executing `npm i axios` on the terminal
+- import React, {useState, useEffect} from "react";
+- import axios from "axios";
+
+export default function FetchMultiplePosts() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+      .then((res) => {
+        console.log(res);
+        setPosts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },[]);
+
+  return (
+    <div>
+      <ul className="list-group list-group-flush">
+        {posts.map((post) => (
+          <li key={post.id} className="list-group-item">
+            {post.id} <br/>
+            {post.title} <br/>
+            {post.body}
+          </li>
+          
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+## React Context
+- React Context is a feature in React that provides a way to share data across the entire component tree without having to pass props down manually at every level. It is often used when certain data needs to be accessible by many components at different nesting levels, such as theme data, user authentication status, or global settings.
+
+### Context Creation:
+* You create a context using React.createContext().
+This function returns a Context object with two components: a Provider and a Consumer.
+
+### Provider:
+* The Provider component is used to wrap the part of your component tree where the context should be available.
+It accepts a value prop, which is the data you want to make available to the rest of the components wrapped inside it.
+
+### Consumer:
+* The Consumer component is used to access the context's value inside a component.
+It requires a function as a child, which receives the current context value and returns JSX based on that value.
+
+## 3. useContext Hook:
+
+* In functional components, you can use the useContext hook to access the context value directly, making it easier than using the Consumer component.
+* Is useful when you are passing data from one component accross other components.
+* It helps us solve the problem of props drilling.
+
+## 4. useReducer
+* The useReducer hook in React is a powerful tool for managing complex state logic within a functional component. It’s an alternative to useState that is particularly useful when the state logic involves multiple sub-values or when the next state depends on the previous one.
 
 ### `npm test`
 

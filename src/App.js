@@ -1,17 +1,27 @@
-import logo from './logo.svg';
-import profile from '../src/imgs/Headshot photo.png'
-import './App.css';
-import {DemoComponent} from './components/DemoComponent';
-import TitleComponent from './components/TitleComponent';
-import ClickEventHandler from './components/ClickEventHandler'
-import UserLogin from './components/UserLogin';
-import EmployeeList from './components/EmployeeList';
-import RegularStyleSheet from './components/RegularStyleSheet';
-import Inline from './components/Inline';
-import CSSModule from './components/CSSModule';
-import FormInput from './components/FormInput';
-import Counter from './components/Counter';
+import logo from "./logo.svg";
+import profile from "../src/imgs/Headshot photo.png";
+import "./App.css";
+import { DemoComponent } from "./components/DemoComponent";
+import ClickEventHandler from "./components/ClickEventHandler";
+import UserLogin from "./components/UserLogin";
+import EmployeeList from "./components/EmployeeList";
+import RegularStyleSheet from "./components/styling/RegularStyleSheet";
+import Inline from "./components/styling/Inline";
+import CSSModule from "./components/styling/CSSModule";
+import FormInput from "./components/useState/FormInput";
+import Counter from "./components/useState/Counter";
+import Objects from "./components/useState/Objects";
+import HookStateArray from "./components/useState/HookStateArray";
+import UseEffectExample1 from "./components/useEffect/useEffect";
+import { UseEffectExample2 } from "./components/useEffect/useEffect";
+import FetchMultiplePosts from "./components/dataFetching/FetchMultiplePosts";
+import FetchDataById from "./components/dataFetching/FetchDataById";
+import ComponentX from "./components/useContext/ComponentX";
+import MyCounter from "./components/useReducer/MyCounter";
+import React from "react";
 
+export const PriceContext = React.createContext();
+export const ItemContext = React.createContext();
 
 function App() {
   return (
@@ -30,7 +40,19 @@ function App() {
           {/* <Inline/> */}
           {/* <CSSModule/> */}
           {/* <FormInput/> */}
-          <Counter/>
+          {/* <Counter/> */}
+          {/* <Objects/> */}
+          {/* <HookStateArray/> */}
+          {/* <UseEffectExample1 /> */}
+          {/* <UseEffectExample2/> */}
+          {/* <FetchMultiplePosts/> */}
+          {/* <FetchDataById/> */}
+          {/* <PriceContext.Provider value={"R200"}>
+            <ItemContext.Provider value={"Samsung"}>
+              <ComponentX />
+            </ItemContext.Provider>
+          </PriceContext.Provider> */}
+          <MyCounter/>
         </div>
       </div>
     </div>
