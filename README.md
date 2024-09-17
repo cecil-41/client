@@ -66,7 +66,7 @@
     </DemoComponent>`
 - A same component can be passed different value props.
 - In between opening and closing tags of a function component are what we call children.
-- All we need to do to access/retrive the children pprops is to call this in the parent component:
+- All we need to do to access/retrive the children props is to call this in the parent component:
     `props.children`
 - The value of a prop that is send from a parent component cannot be altered in the child component.
 
@@ -76,16 +76,6 @@
 - We do not use'props.' anymore when using props distructering.
 - We take them on the function and use curly brackets to list the props.
 
-## 1. UseState() Hooks
-- Usestate hook is a function feature in React that allows you to add state management to functional components.
-- It returns an array of two entries.
-- This is how we import the useState hook:
-    `import React,{useState} from 'react'`
-- A function that allows you to update the state value.
-
-## Hooks
-- Hooks can only be called at the top level, therefore not inside a loop etc. 
-- Hooks can only be called inside a react function.
 
 ## Conditional rendering
 ### Method 1
@@ -183,9 +173,21 @@
 - Then assign the value to the first value
 - Use the set variable with the onchange variable
 
-
 ## React Dev Tools
 - React Developer Tools on chrome store.
+
+
+## Hooks
+- Hooks can only be called at the top level, therefore not inside a loop etc. 
+- Hooks can only be called inside a react function.
+
+## 1. UseState()
+- Usestate hook is a function feature in React that allows you to add state management to functional components.
+- It returns an array of two entries.
+- This is how we import the useState hook:
+    `import React,{useState} from 'react'`
+- A function that allows you to update the state value.
+
 
 ## Objects useState()
 - When working with objects through useState we need to use spread operator (...employee) to the object across its attributes to avoid overiding the existing data.
@@ -272,14 +274,45 @@ It accepts a value prop, which is the data you want to make available to the res
 * The Consumer component is used to access the context's value inside a component.
 It requires a function as a child, which receives the current context value and returns JSX based on that value.
 
-## 3. useContext Hook:
+## 3. useContext Hook()
 
 * In functional components, you can use the useContext hook to access the context value directly, making it easier than using the Consumer component.
 * Is useful when you are passing data from one component accross other components.
 * It helps us solve the problem of props drilling.
+* Example in the useContext
 
-## 4. useReducer
+## 4. useReducer ()
 * The useReducer hook in React is a powerful tool for managing complex state logic within a functional component. It’s an alternative to useState that is particularly useful when the state logic involves multiple sub-values or when the next state depends on the previous one.
+
+## 5. useContext() and useReducer()
+* Global state we achieve that using useContext and useReducer
+* Example in the useContextWithuseReducer component
+
+## 6. useReducer() vs useState() data fetch
+* Both can be used to fetch data from an API.
+* Use useState() for simple state management during data fetching (e.g when tracking only few states like loading, error, data).
+* Use useReducer() when the state logic is more complex, involving multiple actions and states or when the component grows in complexity and requires better organisation.
+
+## 7. useCallback()
+* useCallback is a hook in React that returns a memoized version of a callback function. This means the function only changes (is re-created) if one of its dependencies changes, avoiding unnecessary re-creation of the function on every render.
+* Avoid unnecessary re-renders of child components or re-executions of effects.
+`const memoizedCallback = useCallback(() => {
+  // Function logic
+}, [dependency1, dependency2]);`
+* Example in the useCallBack component
+
+## useMemo()
+* The useMemo hook in React is used to optimize performance by memoizing the result of expensive calculations so that they are only recomputed when necessary, rather than on every render.
+* Example in the useMemo practice
+
+## Difference between useCallback() and useMemo()
+* useMemo: Memoizes the result of a function (i.e., the return value) to avoid recalculating it unless its dependencies change.
+* useCallback: Memoizes the function itself to avoid recreating it on every render, unless its dependencies change.
+* Example in the dataFetching component
+
+## useRef()
+* The useRef hook in React is used to create a mutable object that persists across component renders. It's primarily used for accessing and interacting with DOM elements directly, but it can also store any mutable value that you want to persist without causing a re-render when updated.
+* Example in the useRef component
 
 ### `npm test`
 
